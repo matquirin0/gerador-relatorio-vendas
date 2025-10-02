@@ -5,21 +5,40 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
 import entities.Venda;
 
 public class LeitorVenda {
 	
+	private String arquivo;
+	
 	private List<Venda> vendas = new ArrayList<>();
+	
+	
+	//Getters
+	
+	public List<Venda> getVendas() {
+		return vendas;
+	}
+	
+	public String getArquivo() {
+		return arquivo;
+	}
+	
+	//Setters
 
+	public void setArquivo(String arquivo) {
+		this.arquivo = arquivo;
+	}
+
+	//Construtor padrão
+	
 	public LeitorVenda() {
-
-		Scanner sc = new Scanner(System.in);
-
-		// Selecionando o arquivo
-		System.out.println("Digite o caminho do arquivo: ");
-		String arquivo = sc.nextLine();
+		
+	}
+	
+	//Método para ler o arquivo e inserir em uma lista
+	
+	public void LeitorDeArquivo(String arquivo) {
 
 		// Lendo o arquivo
 		try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
@@ -43,7 +62,6 @@ public class LeitorVenda {
 		} catch (IOException e) {
 			System.out.println("Erro ao ler o arquivo: " + e.getMessage());
 		}
-		sc.close();
 	}
 }
                                                                                                                                                                      
